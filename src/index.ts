@@ -49,13 +49,20 @@ class Bola {
         this._cor = cor;
     }
 }
+const bola1 = new Bola("azul", 100, "plástico");
+console.log(bola1.cor);
+console.log(bola1.circunferencia);
+console.log(bola1.material);
+bola1.trocarCor = "branca";
+console.log(bola1.cor);
+
 
 class ContaCorrente {
     private _numConta: string;
     private _nomeCorrentista: string;
-    private _saldo?: number;
+    private _saldo?: number = 0;
 
-    constructor(numConta: string, nomeCorrentista: string, saldo?: number = 0) {
+    constructor(numConta: string, nomeCorrentista: string, saldo?: number) {
         this._numConta = numConta;
         this._nomeCorrentista = nomeCorrentista;
         this._saldo = saldo;
@@ -77,13 +84,13 @@ class ContaCorrente {
         this._nomeCorrentista = novoNomeCorrentista;
     }
 
-    public deposito(valor: number) {
+    public deposito(valor: number): void {
         if (this._saldo != undefined) {
             this._saldo += valor;
         }
     }
 
-    public saque(valor: number) {
+    public saque(valor: number): void {
         if (this._saldo != undefined) {
             this._saldo -= valor;
         }
